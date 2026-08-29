@@ -1,152 +1,107 @@
-# Deploying YouthIntel — full walkthrough
+# YouthIntel — deployment
 
-Workflow: **local files → GitHub → Cloudflare Pages → your 123reg domain.**
-Once set up, updating the live site is 3 commands.
+**Host:** GitHub Pages · **Repo:** https://github.com/nageshgg/youthntel_website
+**Live domain:** https://www.youthintel.co.uk (apex youthintel.co.uk redirects to www)
 
-Your project folder is already a git repository with the first commit made.
-
----
-
-## STEP 1 — Add your images (do this first)
-
-Put these in this folder (next to `index.html`):
-
-- `logo.png` — the brand image you designed
-- `favicon.png` — optional small square icon for the browser tab
-
-Then save them into git:
+Workflow once live:
 
 ```
-cd "/Users/nageshgupta/Desktop/youthintel website"
-git add -A
-git commit -m "Add logo and favicon"
+edit files locally  →  git push  →  GitHub Pages redeploys (~1 min)  →  site updates
 ```
 
 ---
 
-## STEP 2 — Create a GitHub account
+## STATUS
 
-Skip if you already have one.
-
-1. Go to https://github.com/signup
-2. Use your email, pick a username (e.g. `nageshgupta`), verify the email.
-3. The free plan is all you need.
+- [x] Site built (`index.html`)
+- [x] Git repo + pushed to GitHub
+- [x] GitHub Pages enabled (source: `main` branch, root)
+- [x] `CNAME` file added → `www.youthintel.co.uk`
+- [ ] **DNS set at 123reg**  ← YOU ARE HERE
+- [ ] HTTPS enforced (automatic once DNS resolves)
+- [ ] `logo.png` added (optional — text fallback shows until then)
 
 ---
 
-## STEP 3 — Connect this Mac to GitHub
+## STEP — Set DNS at 123reg
 
-In Terminal:
+Log in at https://www.123-reg.co.uk → **Control panel** → **Domain names** → click
+`youthintel.co.uk` → **Manage** → **Advanced DNS** (or **Manage DNS**).
 
+### 1. Delete the existing parking records
+
+Remove these if present:
+
+| Type  | Name / Host | Current value                        |
+|-------|-------------|--------------------------------------|
+| A     | `@`         | `13.248.213.45`                      |
+| A     | `@`         | `76.223.67.189`                      |
+| CNAME | `www`       | `youthintel.co.uk` (or similar)      |
+
+### 2. Add these records
+
+| Type  | Name / Host | Value                | TTL     |
+|-------|-------------|----------------------|---------|
+| A     | `@`         | `185.199.108.153`    | default |
+| A     | `@`         | `185.199.109.153`    | default |
+| A     | `@`         | `185.199.110.153`    | default |
+| A     | `@`         | `185.199.111.153`    | default |
+| CNAME | `www`       | `nageshgg.github.io` | default |
+
+(If 123reg won't accept `@`, use a blank host or `youthintel.co.uk`.)
+(CNAME value may need a trailing dot: `nageshgg.github.io.`)
+
+### 3. Save. Then wait.
+
+Propagation: usually 15–60 min, occasionally up to 24h.
+
+Check progress from Terminal:
 ```
-gh auth login
+dig +short youthintel.co.uk A          # want the four 185.199.x.x
+dig +short www.youthintel.co.uk        # want nageshgg.github.io
 ```
 
-Answer the prompts:
+### 4. Turn on HTTPS
 
-- **What account?** → `GitHub.com`
-- **Protocol?** → `HTTPS`
-- **Authenticate Git with your GitHub credentials?** → `Yes`
-- **How to authenticate?** → `Login with a web browser`
-- It shows a **one-time code** (like `A1B2-C3D4`). Copy it, press Enter, the browser opens, paste the code, click Authorize.
+Once the domain resolves, go to
+https://github.com/nageshgg/youthntel_website/settings/pages
+- The "Custom domain" box should show `www.youthintel.co.uk` with a green check.
+- Tick **Enforce HTTPS** (may be greyed out for a few hours while GitHub issues the certificate — check back).
 
-You only do this once on this computer.
-
----
-
-## STEP 4 — Create the repo and push
-
-```
-cd "/Users/nageshgupta/Desktop/youthintel website"
-gh repo create youthintel-website --private --source=. --push
-```
-
-This creates a private repo on your GitHub and uploads the files.
-Check it worked: `gh repo view --web`
+Done. https://www.youthintel.co.uk shows the page.
 
 ---
 
-## STEP 5 — Cloudflare Pages
+## ADD THE LOGO
 
-1. Sign up / log in at https://dash.cloudflare.com
-2. Left menu → **Workers & Pages** → **Create** → **Pages** tab → **Connect to Git**
-3. Authorize Cloudflare to see your GitHub, pick `youthintel-website`
-4. Build settings:
-   - **Framework preset:** `None`
-   - **Build command:** *(leave empty)*
-   - **Build output directory:** `/`
-5. **Save and Deploy**
-
-After ~30 seconds you get a live URL: `youthintel-website.pages.dev`. Open it and check the page looks right.
+1. Save your brand image as `logo.png` in this folder.
+2. `git add -A && git commit -m "Add logo" && git push`
+3. ~1 min later the image replaces the text fallback on the live site.
 
 ---
 
-## STEP 6 — Point your 123reg domain at it
+## MAKING CHANGES LATER
 
-### 6a. Add the domain in Cloudflare
-
-In the Pages project → **Custom domains** → **Set up a custom domain** → type your domain (e.g. `youthintel.co.uk`) → **Continue**.
-
-Cloudflare will tell you one of two things:
-
-**Option A — "Add these DNS records"** (keep 123reg as your DNS host):
-It gives you a CNAME record. Note the name and target.
-
-**Option B — "Change your nameservers"** (move DNS to Cloudflare — recommended, more reliable):
-It gives you 2 nameservers like `dana.ns.cloudflare.com` and `rob.ns.cloudflare.com`.
-
-### 6b. Make the change at 123reg
-
-1. Log in at https://www.123-reg.co.uk → **Control panel** → your domain → **Manage**
-
-**If you were given nameservers (Option B):**
-- Find **Nameservers** (sometimes under "Advanced domain settings")
-- Choose "Use custom nameservers" / "Use other nameservers"
-- Delete the 123reg ones, enter the 2 Cloudflare nameservers
-- Save
-
-**If you were given DNS records (Option A):**
-- Find **Manage DNS** / **Advanced DNS**
-- Add the CNAME record exactly as Cloudflare showed (name + target)
-- If there's an existing blank/parking A record on `@` or `www`, remove it
-- Save
-
-### 6c. Wait
-
-DNS changes take anywhere from 10 minutes to a few hours (occasionally up to 24h).
-Cloudflare's Custom Domains page shows a green **Active** when it's live.
-HTTPS certificate is automatic.
-
----
-
-## MAKING CHANGES IN FUTURE
-
-1. Edit `index.html` (or swap `logo.png`) in this folder.
-2. Preview locally: open `index.html` in a browser, or run
-   `python3 -m http.server 8000` and visit http://localhost:8000
+1. Edit `index.html` (or replace `logo.png`).
+2. Preview: open `index.html` in a browser, or `python3 -m http.server 8000`.
 3. Publish:
+   ```
+   git add -A
+   git commit -m "what changed"
+   git push
+   ```
+4. GitHub Pages redeploys automatically.
 
-```
-cd "/Users/nageshgupta/Desktop/youthintel website"
-git add -A
-git commit -m "describe what you changed"
-git push
-```
-
-Cloudflare sees the push and redeploys automatically in ~30 seconds. Your domain updates itself.
-
-### Undo a change
-- See history: `git log --oneline`
-- Roll the live site back: in Cloudflare Pages → **Deployments** → find an earlier one → **Rollback to this deployment**.
+**Undo:** `git log --oneline` to see history; `git revert <commit>` then push to roll back a change.
 
 ---
 
 ## Quick reference
 
-| Task                | Command / place                                    |
-|---------------------|----------------------------------------------------|
-| Preview locally     | open `index.html`                                  |
-| Publish changes     | `git add -A && git commit -m "..." && git push`    |
-| See the repo        | `gh repo view --web`                               |
-| See live deploys    | Cloudflare dashboard → Workers & Pages → youthintel-website |
-| Roll back           | Cloudflare → Deployments → Rollback                 |
+| Task            | Command / link                                                    |
+|-----------------|------------------------------------------------------------------|
+| Preview locally | open `index.html`                                                 |
+| Publish         | `git add -A && git commit -m "..." && git push`                   |
+| Repo            | https://github.com/nageshgg/youthntel_website                     |
+| Pages settings  | https://github.com/nageshgg/youthntel_website/settings/pages      |
+| Check DNS       | `dig +short www.youthintel.co.uk`                                 |
