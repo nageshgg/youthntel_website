@@ -1,102 +1,301 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>YouthIntel</title>
-<meta name="description" content="YouthIntel — Before the crisis. Not after. Safeguarding intelligence for children's mental health. Website coming soon." />
-<meta name="theme-color" content="#0a1f38" />
-
-<!-- Social share preview -->
-<meta property="og:title" content="YouthIntel" />
-<meta property="og:description" content="Before the crisis. Not after. Website coming soon." />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="logo.png" />
-<meta name="twitter:card" content="summary_large_image" />
-
-<link rel="icon" href="favicon.png" />
-
-<style>
-  :root {
-    --bg-top: #071426;
-    --bg-bottom: #0b2440;
-    --text-soft: #b9c7d6;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html, body { height: 100%; }
-
-  body {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.2rem;
-    padding: 6vh 5vw;
-    background: radial-gradient(circle at 50% 35%, var(--bg-bottom), var(--bg-top) 75%);
-    color: var(--text-soft);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    text-align: center;
-  }
-
-  .brand {
-    max-width: 720px;
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* Fallback shown only if the brand image fails to load */
-  .fallback { display: none; }
-  .fallback h1 {
-    font-size: clamp(2.5rem, 9vw, 4.5rem);
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: -0.02em;
-  }
-  .fallback h1 span { font-weight: 400; font-style: italic; color: #3fa9dd; }
-  .fallback p {
-    margin-top: 0.6rem;
-    font-size: clamp(1rem, 3vw, 1.3rem);
-    font-style: italic;
-    color: #8fa2b5;
-  }
-
-  .notice {
-    font-size: clamp(0.95rem, 2.6vw, 1.15rem);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #7c8ea0;
-  }
-
-  .notice::after {
-    content: "";
-    display: block;
-    width: 46px;
-    height: 2px;
-    margin: 1rem auto 0;
-    background: linear-gradient(90deg, #1f8fbf, #4bc7b0);
-    border-radius: 2px;
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouthIntel | Connecting School Insights with Earlier Mental Health Support</title>
+  <meta name="description" content="YouthIntel is an early-stage HealthTech and EdTech venture exploring how school wellbeing information could support earlier safeguarding review and better-informed mental health referrals.">
+  <meta name="theme-color" content="#f7f9ff">
+  <link rel="canonical" href="https://www.youthintel.co.uk/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="YouthIntel">
+  <meta property="og:title" content="YouthIntel | Before the crisis. Not after.">
+  <meta property="og:description" content="Connecting school insights with earlier mental health support.">
+  <meta property="og:url" content="https://www.youthintel.co.uk/">
+  <meta property="og:image" content="https://www.youthintel.co.uk/assets/social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="YouthIntel. Before the crisis. Not after.">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <svg hidden aria-hidden="true">
+    <symbol id="school" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7M5 9v12h14V9M2 21h20m-12 0v-5h4v5"/><path d="M12 8v2m-1-1h2"/></symbol>
+    <symbol id="shield" viewBox="0 0 24 24"><path d="M12 22s7-3.5 7-10V5l-7-3-7 3v7c0 6.5 7 10 7 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="health" viewBox="0 0 24 24"><path d="M20.8 5.8a5 5 0 0 0-7.1 0L12 7.5l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 22l8.8-9.1a5 5 0 0 0 0-7.1Z"/><path d="M8 12h2l1-2 2 4 1-2h2"/></symbol>
+    <symbol id="layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></symbol>
+    <symbol id="users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 21v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3M17 5a3 3 0 0 1 0 6m1 3a4 4 0 0 1 3 4v3"/></symbol>
+    <symbol id="file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6Zm8 0v5h4M9 12h6m-6 4h6"/></symbol>
+    <symbol id="route" viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 6h9a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h9"/></symbol>
+    <symbol id="pulse" viewBox="0 0 24 24"><path d="M2 12h5l3-7 4 14 3-7h5"/></symbol>
+    <symbol id="eye" viewBox="0 0 24 24"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+    <symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
+    <symbol id="spark" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home" aria-label="YouthIntel home"><img src="assets/brand-mark.webp" width="39" height="33" alt=""><span>Youth<span class="brand-accent">Intel</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden><span class="menu-icon" aria-hidden="true"></span>Menu</button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="#home" aria-current="location">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#mission">Our Mission</a>
+        <a href="#approach">Our Approach</a>
+        <a href="#team">Our Team</a>
+        <a class="nav-contact" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section id="home" class="hero">
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">Children’s wellbeing · Early intervention</p>
+          <h1>Before the crisis.<br><span>Not after.</span></h1>
+          <p class="hero-subtitle">Connecting school insights with earlier mental health support.</p>
+          <p>YouthIntel is an early-stage HealthTech and EdTech venture exploring how existing school wellbeing information can be connected to help safeguarding professionals recognise emerging concerns and prepare better-informed mental health referrals.</p>
+          <div class="actions">
+            <a class="button button-primary" href="#mission">Discover Our Mission</a>
+            <a class="button button-secondary" href="#approach">Explore Our Approach</a>
+          </div>
+        </div>
+        <figure class="hero-visual">
+          <img src="assets/pathway.svg" width="600" height="500" fetchpriority="high" alt="A conceptual pathway connecting school insights to safeguarding review and mental health referral pathways.">
+        </figure>
+      </div>
+      <div class="wrap">
+        <p class="status"><span aria-hidden="true"></span>Early-stage concept and prototype. Not currently available for clinical or school deployment.</p>
+      </div>
+    </section>
 
-  <img
-    class="brand"
-    src="logo.png"
-    alt="YouthIntel — Before the crisis. Not after."
-    onerror="this.style.display='none';document.querySelector('.fallback').style.display='block';"
-  />
+    <section id="about" class="section">
+      <div class="wrap split intro">
+        <div>
+          <p class="eyebrow">About YouthIntel</p>
+          <h2>Bridging the information gap between schools and children’s mental health support.</h2>
+        </div>
+        <div class="copy">
+          <p>A change in attendance, a pastoral concern and a visit to the school medical room may tell part of the same story. When each is recorded in a separate system, safeguarding staff can find it difficult to see how those changes fit together.</p>
+          <p>YouthIntel grew out of this challenge. Its proposed platform would bring relevant indicators into view, help professionals make sense of emerging patterns and organise the evidence needed for local referrals. Qualified professionals would remain responsible for deciding what action to take.</p>
+        </div>
+      </div>
+    </section>
 
-  <div class="fallback">
-    <h1>Youth<span>Intel</span></h1>
-    <p>Before the crisis. Not after.</p>
-  </div>
+    <section class="section section-soft" aria-labelledby="why-heading">
+      <div class="wrap">
+        <div class="section-heading">
+          <h2 id="why-heading">Why YouthIntel Matters</h2>
+          <p>Important signs can exist across different systems long before they become visible as a wider pattern.</p>
+        </div>
+        <div class="grid grid-four">
+          <article class="card">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#layers"/></svg></span>
+            <h3>Fragmented Signals</h3>
+            <p>Attendance, behaviour, pastoral and welfare records often sit in separate systems. Looking at them in isolation can make changes harder to recognise.</p>
+          </article>
+          <article class="card">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#users"/></svg></span>
+            <h3>The Invisible Student</h3>
+            <p>A child can be struggling with few visible signs in school records. Concerns from home and other settings may also lack a clear route to the safeguarding team.</p>
+          </article>
+          <article class="card">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#file"/></svg></span>
+            <h3>Complex Referral Preparation</h3>
+            <p>Preparing a referral to Child and Adolescent Mental Health Services (CAMHS) can mean gathering evidence from several sources to meet local requirements.</p>
+          </article>
+          <article class="card">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#route"/></svg></span>
+            <h3>Gaps in Referral Visibility</h3>
+            <p>Schools may have limited visibility of referral progress while continuing to coordinate support for a child and their family.</p>
+          </article>
+        </div>
+        <p class="section-note">YouthIntel’s proposed approach addresses how wellbeing information is brought together in schools and how it can inform the next steps in a referral.</p>
+      </div>
+    </section>
 
-  <p class="notice">Website coming soon</p>
+    <section id="mission" class="section mission">
+      <div class="wrap">
+        <div class="mission-main">
+          <h2 class="eyebrow">Our Mission</h2>
+          <p class="mission-statement">Enable early mental health intervention by connecting school insights directly to NHS care, so no child falls through the gap.</p>
+          <p>Relevant wellbeing information can help professionals understand concerns earlier and take timely, informed action. YouthIntel was conceived to explore how technology could make that connection clearer.</p>
+        </div>
+        <div class="mission-details split">
+          <div>
+            <h3>Our Vision</h3>
+            <p>A future where emerging signs of mental health difficulties are recognised earlier, safeguarding professionals are better informed, and children are connected with appropriate support. That means reducing information gaps between education and healthcare.</p>
+          </div>
+          <div>
+            <h3>What Drives Us</h3>
+            <p>What if the information needed to recognise an emerging concern already exists, but remains disconnected? The founders brought NHS operational experience and machine-learning engineering together with education-sector research to explore practical, explainable tools for earlier intervention and professional review.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="approach" class="section">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Our Approach</p>
+          <h2>A More Connected Approach to Student Wellbeing</h2>
+          <p>Turning disconnected indicators into clearer information for the professionals who support children.</p>
+        </div>
+        <ol class="process grid grid-four">
+          <li>
+            <span class="icon-box"><svg aria-hidden="true"><use href="#layers"/></svg></span>
+            <h3>Connect the Information</h3>
+            <p>Bring together attendance, behaviour, pastoral and safeguarding concerns, and medical-room visits. The platform would work alongside existing school systems.</p>
+          </li>
+          <li>
+            <span class="icon-box"><svg aria-hidden="true"><use href="#pulse"/></svg></span>
+            <h3>Recognise Changes</h3>
+            <p>Compare changes across several areas with a student’s own past patterns. The initial design uses consistent rules that professionals can understand.</p>
+          </li>
+          <li>
+            <span class="icon-box"><svg aria-hidden="true"><use href="#shield"/></svg></span>
+            <h3>Support Professional Review</h3>
+            <p>Show the Designated Safeguarding Lead why a pattern was highlighted, so they can review the evidence and decide what action, if any, is appropriate.</p>
+          </li>
+          <li>
+            <span class="icon-box"><svg aria-hidden="true"><use href="#file"/></svg></span>
+            <h3>Improve Referral Preparation</h3>
+            <p>Help staff organise evidence for local CAMHS referrals. A future secure NHS connection would depend on technical, governance and clinical safety requirements.</p>
+          </li>
+        </ol>
+        <p class="callout"><svg aria-hidden="true"><use href="#shield"/></svg>YouthIntel is designed to support professional judgement, which guides every safeguarding decision.</p>
+      </div>
+    </section>
+
+    <section class="section section-soft" aria-labelledby="capabilities-heading">
+      <div class="wrap">
+        <div class="section-heading">
+          <h2 id="capabilities-heading">The Ideas Behind the Platform</h2>
+          <p>The prototypes explored parts of the core concept, including a subset of the scoring logic. The original plan also outlined how the approach could develop over time.</p>
+        </div>
+        <div class="grid grid-three">
+          <article class="card capability">
+            <h3>Foundational Concept</h3>
+            <ul><li>Identify wellbeing signals across school systems</li><li>Explain why indicators are highlighted</li><li>Support professional review and intervention options</li><li>Prepare structured CAMHS referrals</li></ul>
+          </article>
+          <article class="card capability">
+            <h3>Proposed Connected Support</h3>
+            <ul><li>Student wellbeing check-ins</li><li>A channel for parent and carer concerns</li><li>Secure school-to-NHS referral communication</li><li>Referral acknowledgement and status tracking</li></ul>
+          </article>
+          <article class="card capability">
+            <h3>Longer-Term Vision</h3>
+            <ul><li>Follow-up workflows after treatment</li><li>Area-level insights into population needs and service demand</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="trust-heading">
+      <div class="wrap split trust">
+        <div class="section-heading">
+          <h2 id="trust-heading">Technology Designed Around Trust</h2>
+          <p>YouthIntel is a proposed decision-support system. Clinical diagnosis and safeguarding decisions remain the responsibility of qualified professionals.</p>
+        </div>
+        <dl class="principles">
+          <div><dt>Human Oversight</dt><dd>The Designated Safeguarding Lead reviews the information and remains responsible for safeguarding decisions.</dd></div>
+          <div><dt>Explainability</dt><dd>Each highlighted indicator should come with a reason professionals can understand.</dd></div>
+          <div><dt>Privacy</dt><dd>The design calls for keeping data to a minimum and controlling who can access sensitive information.</dd></div>
+          <div><dt>Fairness</dt><dd>The proposed approach considers demographic fairness and bias in how information is recorded.</dd></div>
+          <div><dt>Accountability</dt><dd>Professional review and auditable workflows would help make decisions traceable.</dd></div>
+          <div><dt>Existing Safeguarding Practice</dt><dd>The design aims to support the processes safeguarding teams already use.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section-soft" aria-labelledby="values-heading">
+      <div class="wrap">
+        <div class="section-heading"><h2 id="values-heading">What We Believe In</h2></div>
+        <div class="grid grid-three values">
+          <article class="card"><span class="icon-box"><svg aria-hidden="true"><use href="#health"/></svg></span><h3>Compassion</h3><p>Children’s wellbeing is at the heart of the idea.</p></article>
+          <article class="card"><span class="icon-box"><svg aria-hidden="true"><use href="#pulse"/></svg></span><h3>Early Intervention</h3><p>Recognising emerging concerns can help professionals act sooner.</p></article>
+          <article class="card"><span class="icon-box"><svg aria-hidden="true"><use href="#eye"/></svg></span><h3>Transparency</h3><p>Technology should explain what it highlights in language people can understand.</p></article>
+          <article class="card"><span class="icon-box"><svg aria-hidden="true"><use href="#lock"/></svg></span><h3>Privacy and Responsibility</h3><p>Sensitive information deserves careful handling.</p></article>
+          <article class="card"><span class="icon-box"><svg aria-hidden="true"><use href="#users"/></svg></span><h3>Collaboration</h3><p>Schools, healthcare professionals and families all have roles in supporting children.</p></article>
+          <article class="card"><span class="icon-box"><svg aria-hidden="true"><use href="#spark"/></svg></span><h3>Meaningful Innovation</h3><p>Technology should make practical work easier for the people doing it.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="section">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Founding Team</p>
+          <h2>The People Behind YouthIntel</h2>
+          <p>Combining experience in healthcare processes and artificial intelligence to explore a more connected approach to children’s wellbeing.</p>
+        </div>
+        <div class="grid grid-two">
+          <article class="card founder">
+            <div class="founder-header"><span class="initials" aria-hidden="true">SJ</span><div><h3>Srushti Jadhav</h3><p class="role">Co-Founder &amp; CEO</p></div></div>
+            <p>Srushti shaped YouthIntel’s research and strategy around real referral pathways and safeguarding challenges. She brought experience at Oxford University Hospitals NHS Foundation Trust, an operational understanding of NHS referrals and experience working with healthcare stakeholders to translate clinical workflow needs into product concepts.</p>
+            <p>She holds an MSc in Health and Social Care Management from Oxford Brookes University and completed TheHill Start-Up Labs programme in July 2026.</p>
+          </article>
+          <article class="card founder">
+            <div class="founder-header"><span class="initials" aria-hidden="true">NG</span><div><h3>Nagesh Gupta</h3><p class="role">Co-Founder &amp; CTO</p></div></div>
+            <p>Nagesh led the early technical architecture, scoring-engine design and development of the school-facing prototype and partially functional MVP. His background includes explainable predictive modelling, machine-learning pipelines and software engineering at DXC Technology and Lentra AI.</p>
+            <p>He holds an MSc in Advanced Computer Science with Distinction from Oxford Brookes University.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" aria-labelledby="journey-heading">
+      <div class="wrap split journey">
+        <div>
+          <h2 id="journey-heading">The Journey Behind YouthIntel</h2>
+          <aside class="research">
+            <h3>Grounded in Professional Perspectives</h3>
+            <p>Interviews with three practising Designated Safeguarding Leads and one pastoral professional helped the founders understand the day-to-day challenges of school safeguarding and pastoral support.</p>
+          </aside>
+        </div>
+        <ol class="timeline">
+          <li><p class="date">2026</p><h3>Research and Concept Development</h3><p>The founders explored challenges around student wellbeing data and school-to-NHS referral workflows.</p></li>
+          <li><p class="date">May 2026</p><h3>Initial Prototype</h3><p>The team developed a clickable, school-facing safeguarding dashboard prototype.</p></li>
+          <li><p class="date">July 2026</p><h3>Early Technical Development</h3><p>The team had built a partially functional MVP with a working subset of the proposed scoring logic, alongside a CAMHS-facing referral portal prototype.</p></li>
+          <li><p class="date">Beyond the Prototype</p><h3>The Original Vision</h3><p>The business plan set out ambitions for school-system connectivity, professional intervention support and structured NHS referral communication.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="wrap">
+        <div class="contact-panel">
+          <div>
+            <h2>Let’s Connect</h2>
+            <p>Interested in the ideas behind YouthIntel, student wellbeing technology or responsible digital innovation? We welcome thoughtful conversations and opportunities to exchange ideas.</p>
+            <!-- CONTACT_EMAIL: add an approved public mailto link here when an address is available. -->
+          </div>
+          <p class="location"><svg aria-hidden="true"><use href="#pin"/></svg>Oxford, United Kingdom</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="brand" href="#home" aria-label="YouthIntel home"><img src="assets/brand-mark.webp" width="39" height="33" alt="" loading="lazy"><span>Youth<span class="brand-accent">Intel</span></span></a>
+          <p>Before the crisis. Not after.</p>
+          <p>Oxford, United Kingdom</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="#home">Home</a><a href="#about">About Us</a><a href="#mission">Our Mission</a><a href="#approach">Our Approach</a><a href="#team">Our Team</a><a href="#contact">Contact</a><a href="privacy.html">Privacy</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 YouthIntel</p>
+        <p>Early-stage concept and prototype. No live clinical or school service.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

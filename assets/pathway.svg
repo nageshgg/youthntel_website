@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="500" viewBox="0 0 600 500">
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#61839a" opacity=".25"/></pattern>
+    <radialGradient id="paper"><stop stop-color="#f4fcf9"/><stop offset="1" stop-color="#eaf1fc"/></radialGradient>
+    <linearGradient id="line"><stop stop-color="#3158cd"/><stop offset="1" stop-color="#139a86"/></linearGradient>
+    <linearGradient id="centre" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#203b9b"/><stop offset="1" stop-color="#12346a"/></linearGradient>
+    <filter id="shadow" x="-.4" y="-.4" width="1.8" height="1.8"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#173763" flood-opacity=".13"/></filter>
+    <clipPath id="edge"><rect width="600" height="500" rx="29"/></clipPath>
+  </defs>
+  <g clip-path="url(#edge)">
+    <rect width="600" height="500" fill="url(#paper)"/>
+    <rect width="600" height="500" fill="url(#grid)"/>
+    <circle cx="300" cy="241" r="205" fill="none" stroke="#bccfe7"/>
+    <circle cx="300" cy="241" r="158" fill="#fff" fill-opacity=".35" stroke="#c5dced"/>
+    <circle cx="300" cy="241" r="107" fill="#dcebe9" fill-opacity=".68" stroke="#afcfd2" stroke-dasharray="3 6"/>
+    <path d="M125 136c93 0 73 105 175 105s78 98 170 98M111 344c80 0 103-103 189-103s81-104 170-104" fill="none" stroke="#a9c5dc" stroke-width="2" stroke-dasharray="4 7"/>
+    <path d="M124 136c96 0 74 105 176 105s79 98 169 98" fill="none" stroke="url(#line)" stroke-width="3"/>
+    <circle cx="205" cy="185" r="6" fill="#4070da" stroke="#fff" stroke-width="2"/>
+    <circle cx="391" cy="288" r="6" fill="#168a79" stroke="#fff" stroke-width="2"/>
+    <circle cx="386" cy="187" r="4" fill="#54a69e"/>
+    <circle cx="207" cy="295" r="4" fill="#7291c5"/>
+    <circle cx="300" cy="241" r="73" fill="#c4dadf"/>
+    <rect x="251" y="192" width="98" height="98" rx="28" fill="url(#centre)" filter="url(#shadow)"/>
+    <g transform="translate(275 214) scale(2.08)" fill="none" stroke="#fff" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-3.5 7-10V5l-7-3-7 3v7c0 6.5 7 10 7 10Z"/><path d="m9 12 2 2 4-4" stroke="#83e2cf"/></g>
+    <g fill="#fff" filter="url(#shadow)">
+      <rect x="83" y="94" width="84" height="84" rx="23"/>
+      <rect x="428" y="297" width="84" height="84" rx="23"/>
+      <rect x="443" y="110" width="54" height="54" rx="15"/>
+      <rect x="84" y="317" width="54" height="54" rx="15"/>
+    </g>
+    <g transform="translate(106 117) scale(1.6)" fill="none" stroke="#2a57bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7M5 9v12h14V9M2 21h20m-12 0v-5h4v5"/><path d="M12 8v2m-1-1h2"/></g>
+    <g transform="translate(451 319) scale(1.6)" fill="none" stroke="#127466" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.8a5 5 0 0 0-7.1 0L12 7.5l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 22l8.8-9.1a5 5 0 0 0 0-7.1Z"/><path d="M8 12h2l1-2 2 4 1-2h2"/></g>
+    <g fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M464 126h8l5 5v17h-13zm8 0v6h5m-10 5h7m-7 5h7" stroke="#477c9b"/>
+      <path d="M98 344h6l4-8 5 16 4-8h6" stroke="#487bb6"/>
+    </g>
+    <g font-family="system-ui, sans-serif" font-size="19" font-weight="650" text-anchor="middle" fill="#183454">
+      <text x="125" y="77">School insights</text>
+      <text x="300" y="341">Safeguarding review</text>
+      <text x="470" y="410">Referral pathways</text>
+    </g>
+  </g>
+</svg>
