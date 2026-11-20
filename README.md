@@ -22,7 +22,7 @@ Visit <http://127.0.0.1:8000>. The site uses HTML, CSS and vanilla JavaScript an
 
 ## Edit the content
 
-- Edit `index.html` for sections, milestones and founder biographies. For the contact button, replace the `CONTACT_EMAIL` comment with a link using the approved public email as its `mailto:` destination and the classes `button button-primary`.
+- Edit `index.html` for sections, founder biographies and contact links. When updating the public email address, change both the link text and its `mailto:` destination.
 - Review `privacy.html` with the website operator before publication. Resolve the visible draft note and the `PRIVACY_REVIEW` comment once the operator, host, privacy contact and handling of any correspondence are confirmed.
 - Edit `style.css` for colours and layout and `script.js` for menu behaviour. The site assets are in `assets/`.
 - If the domain changes, update `CNAME`, both pages’ canonical and Open Graph URLs, `robots.txt` and `sitemap.xml`.

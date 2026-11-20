@@ -119,18 +119,8 @@ h3 { font-size: 1.18rem; letter-spacing: -.024em; font-weight: 690; }
 .initials { display: grid; place-items: center; flex: none; width: 3.65rem; height: 3.65rem; border-radius: 1rem; background: #e0ebff; color: #254aab; font-size: 1.1rem; font-weight: 760; }
 .founder:nth-child(2) .initials { background: #dff2eb; color: var(--teal); }
 .role { margin-top: .2rem; color: var(--teal); font-weight: 650; }
-.founder > p + p { margin-top: .8rem; }
-.research { max-width: 410px; margin-top: 1.4rem; padding: 1.1rem 0 0 1.2rem; border-left: 3px solid #a1cdbf; }
-.research p { margin-top: .6rem; }
-.timeline { margin: 0 0 0 .4rem; padding: 0 0 0 1.4rem; list-style: none; border-left: 1px solid #adc3e4; }
-.timeline li { position: relative; }
-.timeline li::before { position: absolute; top: .35rem; left: -1.75rem; content: ""; width: .65rem; height: .65rem; border-radius: 50%; background: #2e58b8; box-shadow: 0 0 0 4px var(--soft); }
-.timeline li + li { margin-top: 1.45rem; }
-.timeline .date { margin-bottom: .35rem; font-weight: 720; color: var(--teal); font-size: .875rem; }
-.timeline h3 + p { margin-top: .35rem; }
 .contact-panel { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; padding: clamp(1.6rem, 5vw, 3.6rem); border: 1px solid #d7e8e8; border-radius: 1.3rem; background: linear-gradient(105deg, #edf2ff, #e8f7f1); }
 .contact-panel p { margin-top: .8rem; max-width: 55ch; }
-.contact-panel .button { margin-top: 1rem; }
 .location { display: flex; align-items: center; gap: .5rem; font-weight: 650; }
 .location svg { color: var(--teal); }
 .site-footer { padding: 2.3rem 0 1.2rem; border-top: 1px solid var(--border); background: #f7f9fd; }
